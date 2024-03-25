@@ -1,0 +1,241 @@
+*, :before, :after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bodyBG: #f0f4f9;
+  --bodyFontColor: #232;
+  --bodyFontSize: 18px;
+  --bodyFontFamily: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  --bodyFontWeight: 400;
+  --borderRadius: 5px;
+  --buttonBG: #284162;
+  --buttonBGHover: #0535d2;
+  --buttonColor: #fff;
+  --containerColor: #fff;
+  --bp-small: 768px;
+  --bp-medium: 1024px;
+  --bp-large: 1280px;
+  --line-height: 1.5;
+  --linkFontColor: #284162;
+  --linkFontColorHover: #0535d2;
+  --siteWidth: 860px;
+}
+
+:focus {
+  outline: 0;
+  color: #000 !important;
+  background-color: #ff0 !important;
+}
+
+body {
+  color: var(--bodyFontColor);
+  background-color: var(--bodyBG);
+  font-family: var(--bodyFontFamily);
+  font-size: var(--bodyFontSize);
+  font-weight: var(--bodyFontWeight);
+  line-height: var(--line-height);
+  min-height: calc(100vh - 2rem);
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin-bottom: 1rem;
+}
+
+footer, header, main, aside {
+  max-width: var(--siteWidth);
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+@media only screen and (max-width: 768px) {
+  footer, header, main, aside {
+    padding: 1.5rem 1rem;
+  }
+}
+
+a, a:visited {
+  color: var(--linkFontColor);
+}
+
+a:hover, a:visited:hover {
+  color: var(--linkFontColorHover);
+}
+
+.container {
+  background-color: var(--containerColor);
+  text-align: center;
+  border-radius: .5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    border-radius: 0;
+  }
+}
+
+.container--announce {
+  background-color: var(--buttonBG);
+  color: var(--buttonColor);
+  text-align: center;
+  padding: 1rem 2rem;
+}
+
+.container--announce a, .container--announce a:visited {
+  color: var(--buttonColor);
+}
+
+.container--announce a:hover, .container--announce a:visited:hover {
+  opacity: .8;
+}
+
+.container--announce p {
+  margin-bottom: 0;
+}
+
+:root {
+  --popup-transition-duration: .3s;
+  --popup-padding: 1.25rem;
+}
+
+pop-up {
+  visibility: hidden;
+  opacity: 0;
+  transition: ease-in-out var(--popup-transition-duration) visibility, ease-in-out var(--popup-transition-duration) opacity;
+  width: 100vw;
+  height: 100vh;
+  background-color: #00000040;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+pop-up.pop-up--opened {
+  visibility: visible;
+  opacity: 1;
+}
+
+.pop-up__content {
+  background-color: var(--bodyBG);
+  border-radius: calc(var(--popup-padding) / 2);
+  max-width: var(--siteWidth);
+  width: 100%;
+  padding: var(--popup-padding);
+  position: relative;
+}
+
+@media only screen and (max-width: 768px) {
+  .pop-up__content {
+    max-width: calc(100% - calc(var(--popup-padding) * 2));
+  }
+}
+
+.pop-up__close-btn {
+  background: var(--bodyFontColor);
+  color: var(--bodyBG);
+  top: calc(var(--popup-padding) / -2);
+  right: calc(var(--popup-padding) / -2);
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  transition: ease-in-out var(--popup-transition-duration) color, ease-in-out var(--popup-transition-duration) background;
+  border: none;
+  border-radius: 50%;
+  line-height: 0;
+  position: absolute;
+}
+
+.pop-up__close-btn:hover {
+  background: var(--bodyBG);
+  color: var(--bodyFontColor);
+}
+
+.logo {
+  height: 100px;
+}
+
+.logo-link {
+  padding: .5rem;
+  display: inline-block;
+}
+
+a.button, a.button:visited {
+  background-color: var(--buttonBG);
+  border: 2px solid var(--buttonBG);
+  border-radius: var(--borderRadius);
+  color: var(--buttonColor);
+  cursor: pointer;
+  margin: .5rem .5rem .5rem 0;
+  padding: .75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color .3s ease-in-out, border-color .3s ease-in-out, color .3s ease-in-out;
+  display: inline-block;
+}
+
+a.button:hover, a.button:focus {
+  background-color: var(--buttonBGHover);
+  border-color: var(--buttonBGHover);
+  color: var(--buttonColor);
+  text-decoration: none;
+}
+
+a.button--secondary, a.button--secondary:visited {
+  color: var(--buttonBG);
+  background-color: #0000;
+}
+
+a.button--secondary:hover, a.button--secondary:focus {
+  background-color: var(--buttonBGHover);
+  color: var(--buttonColor);
+}
+
+.projects {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 2rem;
+  display: flex;
+}
+
+.project {
+  text-align: left;
+  border-radius: var(--borderRadius);
+  background-color: #0000000a;
+  flex: 1 0 calc(50% - 2rem);
+  transition: background-color .3s ease-in-out;
+}
+
+.project:hover {
+  background-color: #00000014;
+}
+
+@media (max-width: 768px) {
+  .project {
+    flex: 1 0 calc(100% - 2rem);
+  }
+}
+
+.project h3 {
+  margin: .5rem 0 0;
+}
+
+.project a, .project a:visited, .project a:hover {
+  color: var(--bodyFontColor);
+  padding: .5rem 1rem;
+  text-decoration: none;
+  display: block;
+}
+
+/*# sourceMappingURL=index.ffe33db1.css.map */
