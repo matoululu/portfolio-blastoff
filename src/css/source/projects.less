@@ -1,0 +1,36 @@
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 2rem;
+}
+
+.project {
+  background-color: rgba(0,0,0,0.04);
+  text-align: left;
+  flex: 1 0 calc(50% - 2rem);
+  padding: 0.5rem;
+  border-radius: var(--borderRadius);
+  transition: background-color .3s ease-in-out;
+
+  &:hover {
+    background-color: rgba(0,0,0,0.08);
+  }
+
+  @media (max-width: 768px) {
+    flex: 1 0 calc(100% - 2rem);
+  }
+
+  h3 {
+    margin: 0.5rem 0 0;
+  }
+
+  a,
+  a:visited,
+  a:hover {
+    display: block;
+    text-decoration: none;
+    color: var(--bodyFontColor);
+    padding: 0 0.5rem;
+  }
+}
